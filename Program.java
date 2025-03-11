@@ -1,17 +1,29 @@
 package learningjavabasic;
-class Data{
-    static <T> void showArray(T[] arr){
-        for(T element : arr){
-            System.out.println(element);
-        }
-        System.out.println("----------------");
+
+class Person<T extends String, U extends Integer> {
+    T name;
+    U age;
+    public Person(T name, U age) {
+        this.name = name;
+        this.age = age;
     }
 }
+
+class Product<T extends String, U extends Number> {
+    T name;
+    U price;
+    public Product(T name, U price) {
+        this.name = name;
+        this.price = price;
+    }
+}
+
 public class Program {
     public static void main(String[] args) {
-        Data.showArray(new String[]{"Python","Java","PHP"});
-        Data.showArray(new Integer[]{10,20,30});
-        Data.showArray(new Double[]{10.5,20.3,30.4});
-        Data.showArray(new Boolean[]{true,false,true,true});
+//        Person<String,Integer> obj1=new Person<>("kong",30);
+//        System.out.println(obj1.name);
+//        System.out.println(obj1.age);
+        Product<String, Number> product1 = new Product<>("Mouse", 100);
+        Product<String, Number> product2 = new Product<>("Keyboard", 199.99);
     }
 }
